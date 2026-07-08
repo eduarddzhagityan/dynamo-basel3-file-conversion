@@ -1,0 +1,17 @@
+version = "1.0"
+
+[metadata]
+author_name = "Eduard P. Dzhagityan"
+author_email = "dzhagityan@gmail.com"
+difficulty_explanation = "This task requires a supervisory Basel III compliance assessment across multiple regulatory input files. The difficulty comes from reconciling CET1 deductions, collateral eligibility, SME classification based on group revenue, off-balance-sheet credit conversion factors, and the distinction between leverage-ratio compliance and risk-based capital-buffer failure."
+category = "regulated-knowledge-work-and-business-operations"
+tags = ["basel-iii", "prudential-supervision", "capital-adequacy", "rwa", "regulatory-reporting"]
+
+[verifier]
+timeout_sec = 120.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+build_timeout_sec = 600.0
