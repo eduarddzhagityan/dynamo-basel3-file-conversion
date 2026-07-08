@@ -1,0 +1,7 @@
+exposure_id,bank_id,counterparty_id,exposure_type,counterparty_type,amount,currency,risk_weight_hint,is_sme_flag,annual_revenue,group_annual_revenue,loan_purpose,secured_by_collateral,collateral_id
+E001,B001,C001,corporate_loan,large_corporate,180000000,USD,100,false,85000000,85000000,general_corporate,false,
+E002,B001,C002,retail_mortgage,individual,90000000,USD,35,false,,,residential_mortgage,true,COL001
+E003,B001,C003,sme_loan,corporate,60000000,USD,,true,32000000,48000000,working_capital,false,
+E004,B001,C004,corporate_loan,corporate,50000000,USD,,true,26000000,62000000,working_capital,false,
+E005,B001,C005,past_due_loan,corporate,30000000,USD,150,false,70000000,70000000,general_corporate,true,COL002
+E006,B001,C006,sovereign_bond,sovereign,70000000,USD,0,false,,,treasury,false,
