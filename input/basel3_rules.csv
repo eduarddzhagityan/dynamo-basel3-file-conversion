@@ -1,0 +1,11 @@
+rule_id,rule_area,parameter,value,unit,notes
+R001,capital,CET1_minimum,4.5,percent_of_rwa,Basel III minimum CET1 ratio
+R002,capital,Tier1_minimum,6.0,percent_of_rwa,Basel III minimum Tier 1 ratio
+R003,capital,Total_capital_minimum,8.0,percent_of_rwa,Basel III minimum total capital ratio
+R004,capital,Capital_Conservation_Buffer,2.5,percent_of_rwa,Additional CET1 buffer
+R005,capital,CET1_plus_CCB_requirement,7.0,percent_of_rwa,CET1 including CCB
+R006,leverage,Leverage_Ratio_Minimum,3.0,percent_of_exposure_measure,Basel III leverage ratio
+R007,sme,SME_group_revenue_threshold,50000000,USD,SME eligibility threshold
+R008,ccf,Undrawn_credit_commitment,50,percent,CCF
+R009,ccf,Trade_letter_of_credit,20,percent,CCF
+R010,ccf,Unconditionally_cancelable_commitment,10,percent,CCF
