@@ -10,19 +10,19 @@ Use only the information provided in the input files and the rules stated in thi
 
 The input directory contains:
 
-- input/bank_profile.csv
-- input/capital_components.csv
-- input/credit_exposures.csv
-- input/collateral_register.csv
-- input/off_balance_sheet.csv
+- `input/bank_profile.csv`
+- `input/capital_components.csv`
+- `input/credit_exposures.csv`
+- `input/collateral_register.csv`
+- `input/off_balance_sheet.csv`
 
 ## Required outputs
 
 Create exactly these files:
 
-- output/compliance_report.json
-- output/findings.csv
-- output/rwa_summary.csv
+- `output/compliance_report.json`
+- `output/findings.csv`
+- `output/rwa_summary.csv`
 
 No additional output files should be created.
 
@@ -47,9 +47,9 @@ Adjusted CET1 = Gross CET1 - Goodwill - Deferred Tax Assets - Other CET1 Deducti
 
 Capital ratios are calculated as:
 
-CET1 Ratio = Adjusted CET1 / Total RWA * 100
-Tier 1 Ratio = Tier 1 Capital / Total RWA * 100
-Total Capital Ratio = Total Capital / Total RWA * 100
+CET1 Ratio = Adjusted CET1 / Total RWA * 100  
+Tier 1 Ratio = Tier 1 Capital / Total RWA * 100  
+Total Capital Ratio = Total Capital / Total RWA * 100  
 Leverage Ratio = Tier 1 Capital / Total Exposure Measure * 100
 
 ## Minimum regulatory requirements
@@ -78,8 +78,8 @@ Apply the following deterministic risk weights.
 
 An exposure qualifies as SME only if both conditions are satisfied:
 
-- is_sme_flag = true
-- group_annual_revenue <= 50000000
+- `is_sme_flag = true`
+- `group_annual_revenue <= 50000000`
 
 If either condition fails, the exposure must not receive SME treatment.
 
@@ -87,7 +87,7 @@ If either condition fails, the exposure must not receive SME treatment.
 
 Collateral may reduce regulatory exposure only if:
 
-eligible_under_basel = true
+`eligible_under_basel = true`
 
 Collateral that does not satisfy this requirement must be ignored for supervisory purposes.
 
@@ -107,33 +107,33 @@ Off-Balance-Sheet RWA = Notional Amount * CCF * 100%
 
 ## Output file specifications
 
-### output/compliance_report.json
+### `output/compliance_report.json`
 
 The JSON file must contain:
 
-- bank_id
-- reporting_date
-- overall_status
-- primary_reason
-- capital_ratios
-- requirements
-- finding_count
+- `bank_id`
+- `reporting_date`
+- `overall_status`
+- `primary_reason`
+- `capital_ratios`
+- `requirements`
+- `finding_count`
 
 Use numeric values rounded to two decimal places.
 
-### output/findings.csv
+### `output/findings.csv`
 
 Required columns:
 
-finding_id,severity,category,reference,basel_rule,description
+`finding_id,severity,category,reference,basel_rule,description`
 
 Each supervisory finding must appear exactly once.
 
-### output/rwa_summary.csv
+### `output/rwa_summary.csv`
 
 Required columns:
 
-metric,value
+`metric,value`
 
 The file must contain all intermediate supervisory calculations used to determine compliance.
 
