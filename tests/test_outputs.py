@@ -83,8 +83,7 @@ def test_findings_csv_schema_and_required_findings():
     assert len(rows) == 3
 
     text = " ".join(
-        " ".join(str(value) for value in row.values())
-        for row in rows
+        " ".join(str(value) for value in row.values()) for row in rows
     ).lower()
 
     assert "capital conservation buffer" in text
@@ -111,6 +110,7 @@ def test_rwa_summary_csv_schema_and_core_metrics():
     }
 
     assert required_metrics.issubset(metrics.keys())
+
     _assert_close(metrics["adjusted_cet1"], 25000000, tolerance=1)
     _assert_close(metrics["credit_rwa"], 350000000, tolerance=1)
     _assert_close(metrics["off_balance_sheet_rwa"], 48375000, tolerance=1)
