@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-python3 tests/test_outputs.py
+pytest -v tests/test_outputs.py
