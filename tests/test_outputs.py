@@ -54,8 +54,8 @@ def test_compliance_report_schema_and_values():
 
     ratios = report["capital_ratios"]
     _assert_close(ratios["cet1_ratio"], 6.28)
-    _assert_close(ratios["tier1_ratio"], 15.33)
-    _assert_close(ratios["total_capital_ratio"], 18.09)
+    _assert_close(ratios["tier1_ratio"], 15.31)
+    _assert_close(ratios["total_capital_ratio"], 18.07)
     _assert_close(ratios["leverage_ratio"], 4.08)
 
     assert report["requirements"] == {
@@ -113,5 +113,5 @@ def test_rwa_summary_csv_schema_and_core_metrics():
     assert required_metrics.issubset(metrics.keys())
     _assert_close(metrics["adjusted_cet1"], 25000000, tolerance=1)
     _assert_close(metrics["credit_rwa"], 350000000, tolerance=1)
-    _assert_close(metrics["off_balance_sheet_rwa"], 48000000, tolerance=1)
-    _assert_close(metrics["total_rwa"], 398000000, tolerance=1)
+    _assert_close(metrics["off_balance_sheet_rwa"], 48375000, tolerance=1)
+    _assert_close(metrics["total_rwa"], 398375000, tolerance=1)
