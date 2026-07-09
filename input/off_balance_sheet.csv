@@ -1,4 +1,4 @@
 obs_id,bank_id,counterparty_id,instrument_type,notional_amount,currency,maturity_days,cancelable_unconditionally,related_exposure_type
 OBS001,B001,C007,undrawn_credit_commitment,80000000,USD,730,false,corporate
 OBS002,B001,C008,trade_letter_of_credit,40000000,USD,180,false,trade_finance
-OBS003,B001,C009,unconditionally_cancelable_commitment,50000000,USD,365,true,retail
+OBS003,B001,C009,unconditionally_cancelable_commitment,5000000,USD,365,true,retail
