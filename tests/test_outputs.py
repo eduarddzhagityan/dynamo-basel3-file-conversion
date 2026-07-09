@@ -54,9 +54,9 @@ def test_compliance_report_schema_and_values():
 
     ratios = report["capital_ratios"]
     _assert_close(ratios["cet1_ratio"], 6.16)
-_assert_close(ratios["tier1_ratio"], 15.03)
-_assert_close(ratios["total_capital_ratio"], 17.74)
-_assert_close(ratios["leverage_ratio"], 4.08)
+    _assert_close(ratios["tier1_ratio"], 15.03)
+    _assert_close(ratios["total_capital_ratio"], 17.74)
+    _assert_close(ratios["leverage_ratio"], 4.08)
 
     assert report["requirements"] == {
         "cet1_minimum_met": True,
