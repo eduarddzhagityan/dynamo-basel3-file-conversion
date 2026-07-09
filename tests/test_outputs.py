@@ -53,10 +53,10 @@ def test_compliance_report_schema_and_values():
     assert report["finding_count"] == 3
 
     ratios = report["capital_ratios"]
-    _assert_close(ratios["cet1_ratio"], 6.11)
-    _assert_close(ratios["tier1_ratio"], 15.31)
-    _assert_close(ratios["total_capital_ratio"], 18.07)
-    _assert_close(ratios["leverage_ratio"], 4.08)
+    _assert_close(ratios["cet1_ratio"], 6.16)
+_assert_close(ratios["tier1_ratio"], 15.03)
+_assert_close(ratios["total_capital_ratio"], 17.74)
+_assert_close(ratios["leverage_ratio"], 4.08)
 
     assert report["requirements"] == {
         "cet1_minimum_met": True,
@@ -114,4 +114,4 @@ def test_rwa_summary_csv_schema_and_core_metrics():
     _assert_close(metrics["adjusted_cet1"], 25000000, tolerance=1)
     _assert_close(metrics["credit_rwa"], 357500000, tolerance=1)
     _assert_close(metrics["off_balance_sheet_rwa"], 48375000, tolerance=1)
-    _assert_close(metrics["total_rwa"], 398375000, tolerance=1)
+    _assert_close(metrics["total_rwa"], 405875000, tolerance=1)
