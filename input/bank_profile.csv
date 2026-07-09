@@ -1,2 +1,2 @@
-bank_id,bank_name,reporting_date,supervisory_jurisdiction,reporting_currency,accounting_framework
-B001,Northbridge Commercial Bank,2025-12-31,Basel III Standardized Approach,USD,IFRS
+bank_id,bank_name,reporting_date,supervisory_jurisdiction,reporting_currency,accounting_framework,total_exposure_measure
+B001,Northbridge Commercial Bank,2025-12-31,Basel III Standardized Approach,USD,IFRS,1495000000
