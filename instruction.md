@@ -103,8 +103,13 @@ Apply the following Credit Conversion Factors.
 
 Off-balance-sheet RWA is calculated as:
 
-Off-Balance-Sheet RWA = Notional Amount * CCF * 100%
+Off-Balance-Sheet RWA = Notional Amount * CCF * applicable risk weight
 
+For this synthetic task, apply the following off-balance-sheet risk weights based on `related_exposure_type`:
+
+- `corporate`: 100%
+- `trade_finance`: 100%
+- `retail`: 75%
 ## Output file specifications
 
 ### `output/compliance_report.json`
