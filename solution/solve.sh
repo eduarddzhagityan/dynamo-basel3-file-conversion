@@ -88,7 +88,7 @@ for item in off_balance_sheet:
     related_type = item["related_exposure_type"]
     cancelable = item["cancelable_unconditionally"].lower() == "true"
 
-        if cancelable:
+    if cancelable:
         ccf = 0.1
     elif instrument_type == "trade_letter_of_credit":
         ccf = 0.2
