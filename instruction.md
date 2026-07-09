@@ -110,6 +110,7 @@ For this synthetic task, apply the following off-balance-sheet risk weights base
 - `corporate`: 100%
 - `trade_finance`: 100%
 - `retail`: 75%
+
 ## Output file specifications
 
 ### `output/compliance_report.json`
