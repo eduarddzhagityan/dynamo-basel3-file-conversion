@@ -1,3 +1,5 @@
-collateral_id,collateral_type,market_value,currency,issuer_rating,legal_enforceability,valuation_age_days,eligible_under_basel
-COL001,residential_real_estate,120000000,USD,,true,45,true
-COL002,private_company_shares,25000000,USD,unrated,false,420,false
+collateral_id,exposure_id,collateral_type,market_value,eligible
+COL001,E001,Cash,12000000,TRUE
+COL002,E002,Commercial Real Estate,18000000,FALSE
+COL003,E003,Sovereign Bond,25000000,TRUE
+COL004,E004,Residential Real Estate,9000000,TRUE
