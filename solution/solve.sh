@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -euo pipefail
 
 python3 - <<'PY'
@@ -11,9 +10,11 @@ INPUT_DIR = Path("input")
 OUTPUT_DIR = Path("output")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
+
 def read_csv(name):
     with (INPUT_DIR / name).open("r", encoding="utf-8", newline="") as f:
         return list(csv.DictReader(f))
+
 
 def write_csv(name, fieldnames, rows):
     with (OUTPUT_DIR / name).open("w", encoding="utf-8", newline="") as f:
@@ -21,10 +22,12 @@ def write_csv(name, fieldnames, rows):
         writer.writeheader()
         writer.writerows(rows)
 
+
 def as_float(value):
     if value is None or value == "":
         return 0.0
     return float(value)
+
 
 bank_profile = read_csv("bank_profile.csv")[0]
 capital = read_csv("capital_components.csv")[0]
@@ -50,34 +53,43 @@ for exposure in credit_exposures:
 
     if risk_weight_hint != "":
         risk_weight = as_float(risk_weight_hint)
-    elif exposure["is_sme_flag"].lower() == "true":
+    elif (
+        exposure["is_sme_flag"].lower() == "true"
+        and as_float(exposure["group_annual_revenue"]) <= 50000000
+    ):
         risk_weight = 85.0
     else:
         risk_weight = 100.0
 
-    secured_by = exposure.get("secured_by_collateral_id", "")
-    if secured_by:
-        collateral_row = collateral_by_id.get(secured_by)
+    collateral_id = exposure.get("collateral_id", "")
+    if collateral_id:
+        collateral_row = collateral_by_id.get(collateral_id)
         if collateral_row and collateral_row["eligible_under_basel"].lower() == "false":
             findings.append({
                 "finding_id": "F002",
                 "severity": "High",
                 "category": "Credit RWA",
-                "reference": secured_by,
+                "reference": collateral_id,
                 "basel_rule": "Eligible credit risk mitigation",
-                "description": f"Ineligible collateral {secured_by} must not reduce RWA.",
+                "description": f"Ineligible collateral {collateral_id} must not reduce RWA.",
             })
 
     credit_rwa += amount * risk_weight / 100.0
 
-    if exposure["exposure_id"] == "E004" and exposure["is_sme_flag"].lower() == "true":
+    if (
+        exposure["is_sme_flag"].lower() == "true"
+        and as_float(exposure["group_annual_revenue"]) > 50000000
+    ):
         findings.append({
             "finding_id": "F003",
             "severity": "Medium",
             "category": "SME classification",
-            "reference": "E004",
+            "reference": exposure["exposure_id"],
             "basel_rule": "SME exposure classification",
-            "description": "Exposure E004 is flagged as SME but group annual revenue exceeds the SME threshold.",
+            "description": (
+                f"Exposure {exposure['exposure_id']} is flagged as SME but group annual revenue "
+                "exceeds the SME threshold."
+            ),
         })
 
 off_balance_sheet_rwa = 0.0
@@ -130,7 +142,7 @@ if not requirements["capital_conservation_buffer_met"]:
         "finding_id": "F001",
         "severity": "High",
         "category": "Capital adequacy",
-        "reference": "B001",
+        "reference": bank_profile["bank_id"],
         "basel_rule": "Capital Conservation Buffer",
         "description": "Capital Conservation Buffer breach: CET1 ratio is below 7.00%.",
     })
